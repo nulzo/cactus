@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta about="Website for the epic baws nolan">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load crispy_forms_field %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+    <title>Cactus | {% block title %}{% endblock title %}</title>
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-lg-12">
+            {% include "includes/navbar.html" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-lg-2">
+            {% include "includes/sidebar.html" %}
+        </div>
+        <div class="col-xs-10 col-sm-10 col-lg-10">
+            {% block header %}{% endblock header %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    {% include "includes/footer.html" %}
+</main>
+</body>
+</html>

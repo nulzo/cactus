@@ -1,0 +1,15 @@
+{% load static %}
+<nav class="navbar border-3 border-bottom border-dark d-flex bg-white">
+    <div class="d-flex justify-content-center">
+        <a href="{% url "main_home" %}" class="light-font navbar-brand mb-0 h1 navbar-header-link d-flex justify-content-center">CACTUS</a>
+    </div>
+    <div class="nav-top">
+        <div class="d-flex align-items-center">
+            <a href="{% url "account_login" %}" class="mx-2 light-font navbar-link">LOGIN</a>
+            <a href="#" class="light-font navbar-link">ABOUT</a>
+        </div>
+        <div class="d-flex align-items-center  justify-content-evenly">
+            <a href="#" class="mx-2 light-font navbar-link">SOURCE CODE</a>
+        </div>
+    </div>
+</nav>

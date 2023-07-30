@@ -1,0 +1,20 @@
+{% extends "includes/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="d-flex align-items-center justify-content-center centered">
+        <div class="login">
+            <div class="col login-border">
+                <h1 class="h4 d-flex justify-content-center align-items-center mt-2 light-font">plz entr ur passwrd ... we wont take it ;p</h1>
+            </div>
+            <div class="mt-4 px-4">
+                <form>
+                    {% crispy example_form %}
+                    <div class="d-flex justify-content-between mt-5 mb-3">
+                        <button class="custom-btn btn-red" type="submit">Create Account</button>
+                        <button class="custom-btn btn-green" type="submit">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
