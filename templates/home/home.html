@@ -1,19 +1,12 @@
 {% extends "includes/base.html" %}
 {% load static %}
-{% block title %}Welcome{% endblock %}
+{% block title %}{% endblock %}
 
 {% block header %}
     <div class="container text-center">
         <div class="row row-cols-1">
-            <div class="col position-relative light-font subheader">
-                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <path id="SunCatcherStudio" fill="none" stroke="none"
-                          d="M 32.550491,148.48008 A -108.15144,-108.15144 0 0 1 140.70194,40.328644 -108.15144,-108.15144 0 0 1 248.85338,148.48008 -108.15144,-108.15144 0 0 1 140.70194,256.63153 -108.15144,-108.15144 0 0 1 32.550491,148.48008 Z"></path>
-                    <text font-size="30" fill="#000000" letter-spacing="6" font-family="sans-serif" font-weight="bold">
-                        <textPath xlink:href="#SunCatcherStudio" side="left" startOffset="40">WELCOME TO</textPath>
-                    </text>
-                </svg>
+            <div class="col position-relative light-font subheader" id="circle">
+                WELCOME TO
             </div>
             <div class="col welcome-text-animation light-font title-font">CACTUS</div>
         </div>
@@ -41,4 +34,7 @@
             </div>
         </div>
     </div>
+    <script>
+    new CircleType(document.getElementById('circle')).radius(400);
+</script>
 {% endblock content %}
