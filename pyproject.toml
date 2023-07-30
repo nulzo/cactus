@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "financetracker"
+name = "cactus"
 version = "0.1.0"
 description = ""
 authors = ["Nolan Gregory <65730528+nulzo@users.noreply.github.com>"]
