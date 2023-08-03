@@ -22,7 +22,8 @@ def login(request):
                 return render(request, template_name="account/login.html", context={"example_form": login_form, })
             user = authenticate(username=username, password=password)
             if not user:
-                return render(request, template_name="account/login.html", context={"example_form": login_form, "login_error": True})
+                return render(request, template_name="account/login.html",
+                              context={"example_form": login_form, "login_error": True})
 
     login_form = Login()
 
@@ -34,16 +35,25 @@ def create_account(request):
     if request.method == "POST":
         # create a form instance and populate it with data from the request
         create_account_form = CreateAccount(request.POST)
-        # check whether it's valid:
+        # check whether it's valid
         if create_account_form.is_valid():
             password = request.POST.get("password")
+            reentered_password = request.POST.get("confirm_password")
             username = request.POST.get("email")
+
             if not password or not username:
-                return render(request, template_name="account/create_account.html", context={"create_account": create_account_form})
+                return render(request,
+                              template_name="account/create_account.html",
+                              context={"create_account": create_account_form})
+
             user = authenticate(username=username, password=password)
+
             if not user:
-                return render(request, template_name="account/create_account.html",
-                              context={"create_account": create_account_form, "login_error": True})
+                return render(request,
+                              template_name="account/create_account.html",
+                              context={"create_account": create_account_form,
+                                       "login_error": True}
+                              )
 
     create_account_form = CreateAccount()
 

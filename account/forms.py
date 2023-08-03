@@ -18,16 +18,19 @@ class Login(forms.Form):
         self.helper.layout = Layout(
             Field('email', data_name="whatever", autocomplete='off'),
             Field('password', data_name="whatever"),
-            StrictButton('login', 'submit', type="submit", css_class='custom-btn btn-green mt-5 mb-3 d-flex '
-                                                                     'justify-content-center w-100'),
+            StrictButton('login',
+                         'submit',
+                         type="submit",
+                         css_class='custom-btn btn-green mt-5 mb-3 d-flex justify-content-center w-100'
+                         )
         )
 
 
 class CreateAccount(forms.Form):
     email = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'username', 'class': 'bold-font input-padding'}))
-    password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'password', 'class': 'input-padding'}))
-    confirm_password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'password', 'class': 'input-padding'}))
+    password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'password', 'class': 'bold-font input-padding'}))
+    confirm_password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'reenter password', 'class': 'bold-font input-padding'}))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,6 +42,6 @@ class CreateAccount(forms.Form):
             Field('email', data_name="whatever", autocomplete='off'),
             Field('password', data_name="whatever"),
             Field('confirm_password', data_name="whatever"),
-            StrictButton('login', 'submit', type="submit", css_class='custom-btn btn-green mt-5 mb-3 d-flex '
-                                                                     'justify-content-center w-100'),
+            StrictButton('create account', 'submit', type="submit",
+                         css_class='custom-btn btn-green mt-5 mb-3 d-flex justify-content-center w-100')
         )
