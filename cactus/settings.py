@@ -15,8 +15,6 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-import data
-import home
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
