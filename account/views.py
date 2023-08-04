@@ -51,7 +51,7 @@ def create_account(request):
         # check whether it's valid
         if create_account_form.is_valid():
             password = request.POST.get("password")
-            reentered_password = request.POST.get("confirm_password")
+            # reentered_password = request.POST.get("confirm_password")
             username = request.POST.get("email")
 
             if not password or not username:
