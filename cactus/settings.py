@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 import data
 import home
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
-print(os.getenv("DEBUG"))
 DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = []
