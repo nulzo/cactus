@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
-from .forms import Login, CreateAccount
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+
+from .forms import CreateAccount, Login
 
 
 # Create your views here.
@@ -19,15 +20,28 @@ def login(request):
             password = request.POST.get("password")
             username = request.POST.get("email")
             if not password or not username:
-                return render(request, template_name="account/login.html", context={"example_form": login_form, })
+                return render(
+                    request,
+                    template_name="account/login.html",
+                    context={
+                        "example_form": login_form,
+                    },
+                )
             user = authenticate(username=username, password=password)
             if not user:
-                return render(request, template_name="account/login.html",
-                              context={"example_form": login_form, "login_error": True})
+                return render(
+                    request,
+                    template_name="account/login.html",
+                    context={"example_form": login_form, "login_error": True},
+                )
 
     login_form = Login()
 
-    return render(request, template_name="account/login.html", context={"example_form": login_form})
+    return render(
+        request,
+        template_name="account/login.html",
+        context={"example_form": login_form},
+    )
 
 
 def create_account(request):
@@ -42,19 +56,28 @@ def create_account(request):
             username = request.POST.get("email")
 
             if not password or not username:
-                return render(request,
-                              template_name="account/create_account.html",
-                              context={"create_account": create_account_form})
+                return render(
+                    request,
+                    template_name="account/create_account.html",
+                    context={"create_account": create_account_form},
+                )
 
             user = authenticate(username=username, password=password)
 
             if not user:
-                return render(request,
-                              template_name="account/create_account.html",
-                              context={"create_account": create_account_form,
-                                       "login_error": True}
-                              )
+                return render(
+                    request,
+                    template_name="account/create_account.html",
+                    context={
+                        "create_account": create_account_form,
+                        "login_error": True,
+                    },
+                )
 
     create_account_form = CreateAccount()
 
-    return render(request, template_name="account/create_account.html", context={"create_account": create_account_form})
+    return render(
+        request,
+        template_name="account/create_account.html",
+        context={"create_account": create_account_form},
+    )
