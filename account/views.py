@@ -55,7 +55,6 @@ def create_account(request):
             username = request.POST.get("email")
 
             if not password or not username:
-
                 return render(
                     request,
                     template_name="account/create_account.html",

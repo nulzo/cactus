@@ -26,6 +26,8 @@ pylint = "^2.17.5"
 yapf = "^0.40.1"
 autoflake = "^2.2.0"
 
+[tool.black]
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
