@@ -1,6 +1,7 @@
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit, MultiField, Div, Field
 from crispy_forms.bootstrap import StrictButton
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import (Div, Field, Fieldset, Layout, MultiField,
+                                 Submit)
 from django import forms
 
 
