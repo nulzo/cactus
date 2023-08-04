@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import data
-import home
 from dotenv import load_dotenv
 import os
 
@@ -25,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
-print(os.getenv("DEBUG"))
 DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = []
@@ -45,7 +42,7 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "crispy_forms",
     "crispy_bootstrap5",
-    "bootstrap5"
+    "bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -63,8 +60,7 @@ ROOT_URLCONF = "cactus.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
