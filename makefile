@@ -4,18 +4,18 @@ poetry:
 
 lint: ## Lint the codebase
 lint:
-	-ruff .
-	-pylint ./sources --reports yes
-	-djlint . --lint
-	-autoflake -r .
-	-flake8 . --color always --count --statistics
-	-black . --check
+	ruff .
+	pylint ./sources --reports yes
+	djlint . --lint
+	autoflake -r .
+	flake8 . --color always --count --statistics
+	black . --check
 
 format: ## Format the codebase
 format:
-	-isort .
-	-autoflake -r . --in-place --remove-unused-variables --remove-all-unused-imports
-	-black .
+	isort .
+	autoflake -r . --in-place --remove-unused-variables --remove-all-unused-imports
+	black .
 
 test: ## Run tests
 test:
