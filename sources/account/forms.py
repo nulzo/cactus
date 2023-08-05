@@ -36,6 +36,11 @@ class Login(forms.Form):
 
 
 class CreateAccount(forms.Form):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={"placeholder": "username", "class": "bold-font input-padding"}
+        )
+    )
     email = forms.CharField(
         widget=forms.TextInput(
             attrs={"placeholder": "username", "class": "bold-font input-padding"}
@@ -60,9 +65,13 @@ class CreateAccount(forms.Form):
         self.fields["password"].widget = forms.PasswordInput(
             attrs={"class": "bold-font input-padding", "placeholder": "password"}
         )
+        self.fields["confirm_password"].widget = forms.PasswordInput(
+            attrs={"class": "bold-font input-padding", "placeholder": "password"}
+        )
         self.helper = FormHelper()
         self.helper.form_show_labels = False
         self.helper.layout = Layout(
+            Field("username", data_name="whatever", autocomplete="off"),
             Field("email", data_name="whatever", autocomplete="off"),
             Field("password", data_name="whatever"),
             Field("confirm_password", data_name="whatever"),

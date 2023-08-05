@@ -1,3 +1,15 @@
 {% extends "includes/base.html" %}
+
+{% block title %}
+    | Home
+{% endblock title %}
+{% block header %}
+    <div class="container text-center">
+        <div class="row row-cols-1">
+            <div class="col light-font title-font">Welcome Back, {{ request.user.username }}!</div>
+        </div>
+    </div>
+{% endblock header %}
 {% block content %}
+    hello
 {% endblock content %}

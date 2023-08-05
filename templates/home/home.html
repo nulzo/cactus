@@ -1,26 +1,28 @@
 {% extends "includes/base.html" %}
-{% load static %}
-{% block title %}{% endblock title %}
 
+{% load static %}
+
+{% block title %}
+{% endblock title %}
 {% block header %}
     <div class="container text-center">
         <div class="row row-cols-1">
-            <div class="col position-relative light-font subheader" id="circle">
-                WELCOME TO
-            </div>
+            <div class="col position-relative light-font subheader" id="circle">WELCOME TO</div>
             <div class="col welcome-text-animation light-font title-font">CACTUS</div>
         </div>
     </div>
 {% endblock header %}
-
 {% block content %}
     <div class="main">
         <div class="container">
             <div class="row ">
+
                 {% include "includes/content-box.html" %}
+
                 <div class="col-lg-6">
                     <div class="p-3 mx-4 mt-5 boxes box-title bold-font">Stay on Budget</div>
-                    <div class="p-3 mx-4 boxes box-content light-font">Lorem ipsum dolor sit amet, consectetur
+                    <div class="p-3 mx-4 boxes box-content light-font">
+                        Lorem ipsum dolor sit amet, consectetur
                         adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                         nostrud exercitation
@@ -34,7 +36,5 @@
             </div>
         </div>
     </div>
-    <script>
-        new CircleType(document.getElementById('circle')).radius(400);
-    </script>
+    <script>new CircleType(document.getElementById('circle')).radius(400);</script>
 {% endblock content %}
