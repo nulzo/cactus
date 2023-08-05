@@ -136,6 +136,18 @@ body {
     justify-content: center;
 }
 
+/* Success messages */
+.success-box{
+    border: solid var(--neat);
+    opacity: 0.7;
+}
+
+.success-text{
+    color: var(--neat);
+    display: flex;
+    justify-content: center;
+}
+
 /* Home Page */
 
 .welcome-text-animation{

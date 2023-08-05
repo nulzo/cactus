@@ -1,0 +1,5 @@
+{% for message in messages %}
+    <div class="text-center {{ message.tags }}-box mt-4 mx-5">
+        <div class="m-2 {{ message.tags }}-text bold-font">{{ message }}</div>
+    </div>
+{% endfor %}

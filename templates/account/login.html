@@ -1,5 +1,8 @@
 {% extends "includes/base.html" %}
-{% block title %}| Login{% endblock title %}
+
+{% block title %}
+    | Login
+{% endblock title %}
 {% block content %}
     <div class="d-flex align-items-center justify-content-center centered">
         <div class="login">
@@ -7,22 +10,24 @@
                 <h1 class="h4 d-flex justify-content-center align-items-center mt-2 light-font">Login</h1>
             </div>
             <div class="mt-4 px-4">
-                {% if login_error %}
-                    <div class="error-box m-2">
-                        <div class="error-text m-2">Hmmm ... We've searched far and wide but could not find a user
-                            with that username and password ... Although we love scavenger hunts, maybe try a different
-                            combination.
-                        </div>
-                    </div>
+                {% if errors %}
+                    {% for error_head, error_body in errors.items %}
+
+                        {% include "includes/error-box.html" %}
+
+                    {% endfor %}
                 {% endif %}
-                <form method="post" class="needs-validation" novalidate>
+                <form method="post">
                     {% csrf_token %}
+
                     {% load crispy_forms_tags %}
-                    {% crispy example_form %}
-                    <span class="bold-font d-flex justify-content-center w-100"> ----- OR ----- </span>
-                    <a href="{% url 'account_create' %}" class="btn custom-btn btn-red mt-3 mb-3 d-flex justify-content-center w-100" id="create"
-                            type="submit">create account
-                    </a>
+
+                    {% crispy login %}
+                    <span class="bold-font d-flex justify-content-center w-100">----- OR -----</span>
+                    <a href="{% url 'account_create' %}"
+                       class="btn custom-btn btn-red mt-3 mb-3 d-flex justify-content-center w-100"
+                       id="create"
+                       type="submit">create account</a>
                 </form>
             </div>
         </div>

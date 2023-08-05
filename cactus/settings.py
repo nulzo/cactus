@@ -43,6 +43,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
 ROOT_URLCONF = "cactus.urls"
 
 TEMPLATES = [

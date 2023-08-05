@@ -52,6 +52,9 @@ strict_settings = "True"
 [tool.djlint]
 ignore = "H031,H030"
 profile = "django"
+blank_line_after_tag = "load,extends,include"
+blank_line_before_tag = "load,extends,include"
+close_void_tags="True"
 
 [tool.autoflake]
 imports = ["django", "requests", "urllib3"]

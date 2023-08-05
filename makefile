@@ -16,6 +16,7 @@ format:
 	isort .
 	autoflake -r . --in-place --remove-unused-variables --remove-all-unused-imports
 	black .
+	djlint . --reformat
 
 test: ## Run tests
 test:
