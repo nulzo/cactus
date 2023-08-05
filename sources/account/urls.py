@@ -1,5 +1,6 @@
-import account.views as account
 from django.urls import path
+
+import sources.account.views as account
 
 urlpatterns = [
     path("", account.home, name="account_home"),
