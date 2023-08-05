@@ -2,16 +2,24 @@ poetry: ## Make venv if applicable and install poetry requirements
 poetry:
 	poetry install
 
-lint: ## Runs flake8 on src, exit if critical rules are broken
+lint: ## Lint the codebase
 lint:
-	# stop the build if there are Python syntax errors or undefined names
-	flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
-	# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-	flake8 src --count --exit-zero --statistics
+	ruff .
+	pylint ./sources --reports yes
+	djlint . --lint
+	autoflake -r .
+	flake8 . --color always --count --statistics
+	black . --check
 
-test: ## Run pytest
+format: ## Format the codebase
+format:
+	isort .
+	autoflake -r . --in-place --remove-unused-variables --remove-all-unused-imports
+	black .
+
+test: ## Run tests
 test:
-	pytest . -p no:logging -p no:warnings
+	pytest .
 
 build: ## Build docker image
 build:
