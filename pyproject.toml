@@ -2,7 +2,7 @@
 name = "cactus"
 version = "0.0.1"
 description = ""
-authors = ["Nolan Gregory nolanpgregory@gmail.com"]
+authors = ["Nolan Gregory <nolanpgregory@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
