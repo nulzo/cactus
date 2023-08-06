@@ -22,6 +22,13 @@ test: ## Run tests
 test:
 	pytest .
 
+wipe-db: ## Wipe database and make a new one
+wipe-db:
+	python manage.py flush --noinput
+	python manage.py makemigrations
+	python manage.py migrate
+	python manage.py createsuperuser --noinput
+
 build: ## Build docker image
 build:
 	docker build -t $(DOCKER_NAME):$(DOCKER_TAG) -f docker/Dockerfile .

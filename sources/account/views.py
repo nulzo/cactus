@@ -110,16 +110,6 @@ def create_account(request):
                 )
                 return redirect("main_home")
 
-            # if not user:
-            #     return render(
-            #         request,
-            #         template_name="account/create_account.html",
-            #         context={
-            #             "create_account": create_account_form,
-            #             "login_error": True,
-            #         },
-            #     )
-
     create_account_form = CreateAccount()
 
     return render(

@@ -25,8 +25,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "data.apps.DataConfig",
-    "home.apps.GraphsConfig",
+    "sources.data.apps.DataConfig",
+    "sources.account.apps.AccountConfig",
+    "sources.home.apps.GraphsConfig",
     "django_bootstrap5",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -95,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Chicago"
 
 USE_I18N = True
 
