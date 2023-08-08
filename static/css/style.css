@@ -1,7 +1,4 @@
 :root {
-    --main-font-color: #333;
-    --secondary-font-color: #bbb;
-    --main-bg-light-color: #fffbf8;
     --main-hover-color: #DD3635;
     --sidebar-color: rgba(14, 94, 112, 0.42);
     --seconday-color: #11507E;
@@ -11,26 +8,80 @@
     --neat: #14B89F;
     --teal: #3AECDC;
 
+
+    /** CSS DARK THEME PRIMARY COLORS */
+    --color-primary-100: #41d9ca;
+    --color-primary-200: #61ded0;
+    --color-primary-300: #7be2d6;
+    --color-primary-400: #91e7db;
+    --color-primary-500: #a5ebe1;
+    --color-primary-600: #b8efe7;
+    --color-surface-100: #101010;
+    --color-surface-200: #262626;
+    --color-surface-300: #3d3d3d;
+    --color-surface-400: #565656;
+    --color-surface-500: #707070;
+    --color-surface-600: #8a8a8a;
+    --color-surface-mixed-100: #192220;
+    --color-surface-mixed-200: #2e3735;
+    --color-surface-mixed-300: #454d4b;
+    --color-surface-mixed-400: #5d6462;
+    --color-surface-mixed-500: #767c7a;
+    --color-surface-mixed-600: #8f9493;
+    --border-color: #eeeeee;
+    --main-font-color: #eeeeee;
+    --secondary-font-color: #aaaaaa;
+    --dark-font-color: #333;
+
+    --error-color: #ff2916;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.window {
+    height: 100vh;
+    width: 100vw;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* Font Stuff */
-.light-font{
+.light-font {
     font-weight: 100;
 }
 
-.bold-font{
+.bold-font {
     font-weight: 700;
 }
 
-.regular-font{
+.regular-font {
     font-weight: 500;
 }
 
 .title-font {
-    font-size: 5em;
+    font-size: 10em;
 }
 
-.subheader{
+.subheader {
     padding-top: 1rem;
     font-size: 4em;
     color: #333;
@@ -78,11 +129,21 @@
 
 body {
     font-family: 'Arimo', sans-serif;
-    color: var(--main-font-color);
-    background-color: var(--main-bg-light-color);
+    background-color: var(--color-surface-100);
+    color: #eeeeee;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.primary-background {
+    background-color: var(--color-surface-100);
 }
 
 /* Navbar */
+.custom-nav {
+    border-bottom: solid var(--border-color) !important;
+}
+
 .nav-top {
     display: flex;
     margin-left: 5em;
@@ -90,12 +151,13 @@ body {
 }
 
 .navbar-brand {
+    color: var(--main-font-color);
     padding-left: 1em;
 }
 
 .navbar-header-link {
     font-size: 1.25rem;
-    color: #333;
+    color: var(--main-font-color);
     transition: ease-in-out 0.15s;
 }
 
@@ -105,7 +167,7 @@ body {
 
 .navbar-link {
     text-decoration: none;
-    color: #333;
+    color: var(--main-font-color);
     font-weight: 100;
     font-size: 0.75rem;
     transition: ease-in-out 0.15s;
@@ -116,42 +178,55 @@ body {
 }
 
 /* Sidebar */
-.sidebar{
+.sidebar {
     position: fixed;
-    height: 100%;
     width: inherit;
-    border-right: solid #1b1b1b;
-    background-color: var(--neat);
+    border-right: solid var(--border-color);
+    background-color: var(--color-surface-300);
+    padding-left: 0.5em !important;
+    padding-top: 1em;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 0;
+    height: 100%;
 }
 
 /* Error messages */
-.error-box{
-    border: solid var(--red);
+.error-box {
+    border: solid var(--error-color);
     opacity: 0.7;
 }
 
-.error-text{
-    color: var(--red);
+.error-text {
+    color: var(--error-color);
     display: flex;
     justify-content: center;
 }
 
 /* Success messages */
-.success-box{
+.success-box {
     border: solid var(--neat);
     opacity: 0.7;
 }
 
-.success-text{
+.success-text {
     color: var(--neat);
     display: flex;
     justify-content: center;
 }
 
+.custom-footer {
+    background-color: var(--color-surface-100);
+    border-top: solid var(--border-color);
+    padding: 2vh 0;
+    z-index: 4000;
+    min-width: 100%;
+}
+
 /* Home Page */
 
-.welcome-text-animation{
-    background: linear-gradient(-90deg, var(--red) 40%, var(--main-bg-light-color)50%, var(--neat)60% 100%);
+.welcome-text-animation {
+    background: linear-gradient(-90deg, var(--red) 40%, var(--color-primary-100) 50%, var(--neat) 60% 100%);
     background-size: 600% 600%;
 
     -webkit-background-clip: text;
@@ -166,19 +241,39 @@ body {
 }
 
 @-webkit-keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
+
 @-moz-keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
+
 @keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 .boxes {
@@ -199,7 +294,7 @@ body {
 /* login */
 
 .login {
-    width: 500px!important;
+    width: 500px !important;
     border: solid;
 }
 
@@ -212,7 +307,7 @@ body {
     border: solid;
 }
 
-.login-border{
+.login-border {
     border-bottom: solid;
 }
 
@@ -227,7 +322,8 @@ body {
 
 .custom-btn {
     padding: 0.25rem 1em;
-    border: solid #000;
+    border: solid var(--border-color);
+    color: var(--main-font-color) !important;
     font-weight: 500;
     background: transparent;
     cursor: pointer;
@@ -254,7 +350,7 @@ body {
 }
 
 .btn-red:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .btn-red:hover:after {
@@ -280,12 +376,12 @@ body {
     top: 0;
     right: 0;
     z-index: -1;
-    background: var(--purple);
-    transition: all 0.3s ease;
+    background: var(--color-surface-100);
+    transition: all 0.2s ease;
 }
 
 .btn-green:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .btn-green:hover:after {
@@ -299,19 +395,22 @@ body {
 }
 
 input[type=text], [type=password] {
-    font-size:18px;
-    padding:1em 0 0 0!important;
-    display:block;
-    border: none!important;
-    border-bottom:solid #333!important;
-    border-radius: 0!important;
-    background-color: transparent!important;
+    font-size: 18px;
+    padding: 1em 0 0 0 !important;
+    display: block;
+    caret-color: var(--border-color);
+    border: none !important;
+    border-bottom: solid var(--color-surface-400) !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    color: var(--main-font-color);
 }
 
-input[type=text]:focus, [type=password]:focus{
+input[type=text]:focus, [type=password]:focus {
     border-bottom: solid var(--neat) !important;
     outline: none !important;
-    box-shadow: none!important;
+    box-shadow: none !important;
+    color: var(--main-font-color);
 }
 
 .input-padding {
@@ -319,27 +418,105 @@ input[type=text]:focus, [type=password]:focus{
 }
 
 main::before {
-	animation: grain 10s steps(10) infinite;
-	background-image: url("../images/noise.png");
-	content: '';
-	height: 300%;
-	left: -50%;
-	opacity: 0.2;
-	position: fixed;
-	top: -100%;
-	width: 300%;
-	pointer-events: none;
+    animation: grain 10s steps(10) infinite;
+    background-image: url("../images/noise.png");
+    content: '';
+    height: 300%;
+    left: -50%;
+    opacity: 0.2;
+    position: fixed;
+    top: -100%;
+    width: 300%;
+    pointer-events: none;
 }
 
 @keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
+    0%, 100% {
+        transform: translate(0, 0)
+    }
+    10% {
+        transform: translate(-5%, -10%)
+    }
+    20% {
+        transform: translate(-15%, 5%)
+    }
+    30% {
+        transform: translate(7%, -25%)
+    }
+    40% {
+        transform: translate(-5%, 25%)
+    }
+    50% {
+        transform: translate(-15%, 10%)
+    }
+    60% {
+        transform: translate(15%, 0%)
+    }
+    70% {
+        transform: translate(0%, 15%)
+    }
+    80% {
+        transform: translate(3%, 35%)
+    }
+    90% {
+        transform: translate(-10%, 10%)
+    }
+}
+
+.login-header {
+    background-color: var(--color-surface-200);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.welcome-text {
+    /*background: #15cbe4;*/
+    background: #f09ab3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% 500%;
+    font-weight: bold;
+    -webkit-text-stroke: 2px var(--border-color);
+    -webkit-animation: gradient 20s ease-in-out infinite;
+    background-image: radial-gradient(at 15.3% 61.9%, hsl(205, 71%, 26%) 0px, transparent 50%),
+    radial-gradient(at 41.6% 36.2%, hsl(167, 96%, 62%) 0px, transparent 50%),
+    radial-gradient(at 86.0% 88.0%, hsl(344, 94%, 41%) 0px, transparent 50%),
+    radial-gradient(at 64.0% 90.0%, hsl(108, 29%, 70%) 0px, transparent 50%),
+    radial-gradient(at 3.4% 96.5%, hsl(5, 86%, 34%) 0px, transparent 50%);
+}
+
+.sidebar-item {
+    color: var(--main-font-color);
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.sidebar-item:hover {
+    color: var(--color-primary-300);
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.main-window {
+    flex: 0 0 auto;
+    width: 85%;
+    overflow: auto;
+}
+
+.sidebar-window {
+    flex: 0 0 auto;
+    width: 15%;
+    height: max-content;
+}
+
+.navbar-window {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.footer-window {
+    position: sticky;
+    z-index: 10000;
 }

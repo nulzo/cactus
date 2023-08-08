@@ -66,7 +66,13 @@ class CreateAccount(forms.Form):
             attrs={"class": "bold-font input-padding", "placeholder": "password"}
         )
         self.fields["confirm_password"].widget = forms.PasswordInput(
-            attrs={"class": "bold-font input-padding", "placeholder": "password"}
+            attrs={
+                "class": "bold-font input-padding",
+                "placeholder": "confirm password",
+            }
+        )
+        self.fields["email"].widget = forms.TextInput(
+            attrs={"class": "bold-font input-padding", "placeholder": "email"}
         )
         self.helper = FormHelper()
         self.helper.form_show_labels = False
