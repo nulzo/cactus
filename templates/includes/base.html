@@ -31,34 +31,38 @@
     </head>
     <body>
         <main>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-lg-12">
+            <div class="window">
+                <div class="row">
+                    <div class="navbar-window">
 
-                    {% include "includes/navbar.html" %}
+                        {% include "includes/navbar.html" %}
 
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="sidebar-window">
+
+                        {% include "includes/sidebar.html" %}
+
+                    </div>
+                    <div class="main-window">
+                        {% if messages %}
+
+                            {% include "includes/message-box.html" %}
+
+                        {% endif %}
+                        {% block header %}
+                        {% endblock header %}
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-xs-2 col-sm-2 col-lg-2">
+            <div class="footer-window">
 
-                    {% include "includes/sidebar.html" %}
+                {% include "includes/footer.html" %}
 
-                </div>
-                <div class="col-xs-10 col-sm-10 col-lg-10">
-                    {% if messages %}
-
-                        {% include "includes/message-box.html" %}
-
-                    {% endif %}
-                    {% block header %}
-                    {% endblock header %}
-                    {% block content %}
-                    {% endblock content %}
-                </div>
             </div>
-
-            {% include "includes/footer.html" %}
-
         </main>
     </body>
 </html>
