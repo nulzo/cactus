@@ -1,3 +1,68 @@
 {% load static %}
 
-<div class="sidebar"></div>
+<div class="sidebar container-fluid " id="sticky-sidebar">
+    <div class="row">
+        <div class="col-auto">
+            <div class="d-flex flex-column align-items-center">
+                <ul class="sidebar-item mt-3 mb-3 flex-column align-items-center">
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/graph.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2  d-sm-inline">DASHBOARD</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/heart.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2  d-sm-inline">FINANCE HEALTH</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/task.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2  d-sm-inline">TASKS AND GOALS</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/daily.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2  d-sm-inline">DAILY SPENDING</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/calendar.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2  d-sm-inline">CALENDAR</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/profile.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2  d-sm-inline">PROFILE</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item py-3">
+
+                        {% include "svgs/settings.html" %}
+
+                        <a href="#" class="sidebar-item align-middle px-0">
+                            <span class="sidebar-item mx-2 d-sm-inline">SETTINGS</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
