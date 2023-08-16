@@ -1,18 +1,13 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta about="Website for the epic baws nolan" />
-
         {% load bootstrap5 %}
-
         {% bootstrap_css %}
         {% bootstrap_javascript %}
-
         {% load crispy_forms_field %}
-
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,23 +28,17 @@
         <main>
             <div class="window">
                 <div class="row">
-                    <div class="navbar-window">
-
-                        {% include "includes/navbar.html" %}
-
-                    </div>
+                    <div class="navbar-window">{% include "includes/navbar.html" %}</div>
                 </div>
                 <div class="row mt-5">
                     <div class="sidebar-window">
-
-                        {% include "includes/sidebar.html" %}
-
+                        {% if user.is_authenticated %}
+                            {% include "includes/sidebar.html" %}
+                        {% endif %}
                     </div>
-                    <div class="main-window">
+                    <div class="main-window {% if user.is_authenticated %}main-logged{% endif %}">
                         {% if messages %}
-
                             {% include "includes/message-box.html" %}
-
                         {% endif %}
                         {% block header %}
                         {% endblock header %}
@@ -58,10 +47,8 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-window">
-
+            <div class="footer-window {% if user.is_authenticated %}footer-logged{% endif %}">
                 {% include "includes/footer.html" %}
-
             </div>
         </main>
     </body>

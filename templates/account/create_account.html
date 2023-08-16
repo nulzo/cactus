@@ -12,16 +12,12 @@
             <div class="login-body mt-4 px-4">
                 {% if errors %}
                     {% for error_head, error_body in errors.items %}
-
                         {% include "includes/error-box.html" %}
-
                     {% endfor %}
                 {% endif %}
                 <form method="post">
                     {% csrf_token %}
-
                     {% load crispy_forms_tags %}
-
                     {% crispy create_account %}
                     <span class="bold-font d-flex justify-content-center w-100">----- OR -----</span>
                     <a href="{% url 'account_login' %}"

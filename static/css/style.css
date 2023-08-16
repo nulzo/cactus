@@ -183,7 +183,6 @@ body {
     width: inherit;
     border-right: solid var(--border-color);
     background-color: var(--color-surface-300);
-    padding-left: 0.5em !important;
     padding-top: 1em;
     margin-right: auto;
     margin-left: auto;
@@ -499,15 +498,23 @@ main::before {
     list-style-type: none;
 }
 
+.svg-hover:hover {
+    filter: invert(67%) sepia(43%) saturate(4496%) hue-rotate(296deg) brightness(103%) contrast(101%);
+}
+
 .main-window {
     flex: 0 0 auto;
-    width: 85%;
+    width: 100%;
     overflow: auto;
+}
+
+.main-logged {
+    width: 95%;
 }
 
 .sidebar-window {
     flex: 0 0 auto;
-    width: 15%;
+    width: 5%;
     height: max-content;
 }
 
@@ -519,4 +526,9 @@ main::before {
 .footer-window {
     position: sticky;
     z-index: 10000;
+    height: 100%;
+}
+
+.footer-logged {
+    padding-left: 5%;
 }

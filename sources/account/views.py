@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
+from django.contrib.auth.decorators import login_required
 
 from sources.account.models import daily_spending, user_account
 
@@ -13,27 +14,11 @@ from .forms import CreateAccount, Login
 # pylint: disable = W0511,C0209,E1101
 
 
-# Create your views here.
+@login_required(login_url='login/')
 def home(request):
     username: user_account.UserAccount = user_account.UserAccount.objects.all().first()
     spending: daily_spending.DailySpending = username.daily.all().first()
-
-    year = 2023
-    month = 8
-    my_date = datetime.date(year, month, 1)
-    delta = datetime.timedelta(days=1)
-    dates = []
-
-    while my_date.month == month:
-        dates.append(my_date.strftime("%d-%b-%Y"))
-        my_date += delta
-
-    ids = list(spending.__dict__.keys())[3:-1]
-    # data = list(spending.__dict__.values())[3:-1]
-    vals = np.random.rand(50, 50).tolist()
-    print(vals)
-    context = {"id": ids, "data": vals, "dates": dates}
-    return render(request, context=context, template_name="account/account.html")
+    return render(request, template_name="account/account.html")
 
 
 def logout_page(request):
@@ -43,6 +28,9 @@ def logout_page(request):
 
 
 def login_page(request):
+    if request.user.is_authenticated:
+        print("YUP!")
+        return redirect(request, template_name="account/account_home.html")
     # if this is a POST request we need to process the form data
     if request.method == "POST":
         # create a form instance and populate it with data from the request

@@ -1,3 +1,6 @@
+USERNAME = "test"
+PASSWORD = "test"
+
 poetry: ## Make venv if applicable and install poetry requirements
 poetry:
 	poetry install
@@ -29,6 +32,10 @@ wipe-db:
 	python manage.py migrate
 	python manage.py createsuperuser --noinput
 
+.PHONY run:
+run:
+	python3 manage.py runserver || py manage.py runsever
+
 build: ## Build docker image
 build:
 	docker build -t $(DOCKER_NAME):$(DOCKER_TAG) -f docker/Dockerfile .
@@ -41,9 +48,9 @@ start: ## Build and start docker image
 start: build
 	docker start $(DOCKER_NAME)
 
-run: ## build, start and run docker image
-run: start
-	docker run -it $(DOCKER_NAME):$(DOCKER_TAG)
+# run: ## build, start and run docker image
+# run: start
+# 	docker run -it $(DOCKER_NAME):$(DOCKER_TAG)
 
 exec: ## build, start and exec into docker image
 exec: start
