@@ -1,11 +1,8 @@
-import datetime
-
-import numpy as np
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
 
 from sources.account.models import daily_spending, user_account
 
@@ -14,7 +11,7 @@ from .forms import CreateAccount, Login
 # pylint: disable = W0511,C0209,E1101
 
 
-@login_required(login_url='login/')
+@login_required()
 def home(request):
     username: user_account.UserAccount = user_account.UserAccount.objects.all().first()
     spending: daily_spending.DailySpending = username.daily.all().first()
@@ -29,8 +26,7 @@ def logout_page(request):
 
 def login_page(request):
     if request.user.is_authenticated:
-        print("YUP!")
-        return redirect(request, template_name="account/account_home.html")
+        return redirect("account_home")
     # if this is a POST request we need to process the form data
     if request.method == "POST":
         # create a form instance and populate it with data from the request
